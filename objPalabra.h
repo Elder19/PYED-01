@@ -11,32 +11,53 @@ class objPalabra {
 public:
     int cantidadLetras;
     string palabra;
-    string apariciones;
-    ArrayListt<objPalabra*> lines;  // Lista de apariciones en líneas
+    int apariciones;
+    ArrayListt<int>  CP;  // Lista de apariciones en líneas
 
 
 
     // Constructor parametrizado
-    objPalabra(int cantidadLetras, const string& palabra, const string& apariciones, const ArrayList<Linea*>& lines)
-        : cantidadLetras(cantidadLetras), palabra(palabra), apariciones(apariciones), lines(lines) {}
+    objPalabra(int cantidadLetras,  string& palabra,  int apariciones, int linea) {
+        this->cantidadLetras = cantidadLetras;
+        this->palabra = palabra;
+        this->apariciones+=apariciones;
+        CP.append(linea);
+       
+
+
+    }
+        
 
     // Destructor
     ~objPalabra() {}
 
     // Getters
-    int getCantidadLetras() const { return cantidadLetras; }
-    string getPalabra() const { return palabra; }
-    string getApariciones() const { return apariciones; }
-   
+    int getCantidadLetras()  { return cantidadLetras; }
+    string getPalabra()  { return palabra; }
+    int getApariciones()  { return apariciones; }
+    //void takeline() { this->CP.getElement() }
+
 
 
 
     // Setters
     void setCantidadLetras(int cantidadLetras) { this->cantidadLetras = cantidadLetras; }
-    void setPalabra(const string& palabra) { this->palabra = palabra; }
-    void setApariciones(const string& apariciones) { this->apariciones = apariciones; }
-    void addLine(objPalabra* line) { lines.append(line); }
+    void setPalabra( string& palabra) { this->palabra = palabra; }
+    void setApariciones( int apariciones) { this->apariciones = apariciones; }
 
+    void addLine(int linea) { CP.append(linea); }
+    // Método print
+    void print()  {
+        cout << "Palabra: " << palabra << endl;
+        cout << "Cantidad de Letras: " << cantidadLetras << endl;
+        cout << "Apariciones: " << apariciones << endl;
+        cout << "Lista de apariciones en líneas: ";
+        for (int i = 0; i < CP.getSize(); ++i) {
+            CP.goToPos(i);
+            cout << CP.getElement() << " ";
+        }
+        cout << endl;
+    }
 
     
 };
