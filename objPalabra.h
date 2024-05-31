@@ -20,11 +20,9 @@ public:
     objPalabra(int cantidadLetras,  string& palabra,  int apariciones, int linea) {
         this->cantidadLetras = cantidadLetras;
         this->palabra = palabra;
-        this->apariciones+=apariciones;
+        this->apariciones=apariciones;
         CP.append(linea);
-       
-
-
+      
     }
         
 
@@ -43,7 +41,7 @@ public:
     // Setters
     void setCantidadLetras(int cantidadLetras) { this->cantidadLetras = cantidadLetras; }
     void setPalabra( string& palabra) { this->palabra = palabra; }
-    void setApariciones( int apariciones) { this->apariciones = apariciones; }
+    void setApariciones( int apariciones) { this->apariciones += apariciones; }
 
     void addLine(int linea) { CP.append(linea); }
     // Método print
@@ -54,7 +52,7 @@ public:
         cout << "Lista de apariciones en líneas: ";
         for (int i = 0; i < CP.getSize(); ++i) {
             CP.goToPos(i);
-            cout << CP.getElement() << " ";
+            cout << CP.getElement() << "vacio ";
         }
         cout << endl;
     }
