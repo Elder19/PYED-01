@@ -4,6 +4,8 @@
 #include <iostream>
 #include <sstream> 
 #include "readANSI.h"
+#include "objPalabra.h"
+
 using namespace std;
 
 /*
@@ -28,7 +30,13 @@ public:
 		return instance;
 		
 	}
-	void lectorText(string ruta) {
+	void lectorText( ) {
+		string ruta;
+		cin.ignore();
+		cout << "ingrese una direccion de archivo: ";
+		getline(cin, ruta);
+
+
 		readANSI lector; // Crea una instancia de la clase readANSI
 		string rutaArchivo = ruta; // Define la ruta del archivo que deseas leer
 
@@ -40,11 +48,18 @@ public:
 			return; 
 
 		}
-		// Haz lo que necesites con el contenido del archivo, por ejemplo, imprimirlo
+	
+		selectorPalabras(contenidoArchivo);
 		cout << "Contenido del archivo:\n" << contenidoArchivo << endl;
 	
 	}
+	void selectorPalabras(string contenidoArchivo) 
 
+
+
+
+
+	}
 
 };
 

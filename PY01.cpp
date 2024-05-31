@@ -27,7 +27,7 @@ int main() {
 
         switch (opcionMenu) {
         case 1:
-           // menu.admin.estadoDeColas();
+           //menu.admin.lectorText()
             break;
 
         case 2:
@@ -45,7 +45,8 @@ int main() {
             break;
 
         case 5:
-            menu.admin.getInstance();
+            menu.admin.lectorText();
+           
             break;
 
         case 6:
