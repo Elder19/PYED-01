@@ -20,7 +20,7 @@ public:
             
             while (getline(archivo, linea)) {
                 contenido += linea + "\n"; // Concatena la línea y un salto de línea
-                if (charge)
+                //if (charge)
                     //cargar aqui el codigo de brasly
             }
             archivo.close(); // Cierra el archivo después de la lectura

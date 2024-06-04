@@ -131,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
-    <ClInclude Include="Menú.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="objPalabra.h" />
     <ClInclude Include="readANSI.h" />
   </ItemGroup>

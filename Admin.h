@@ -149,8 +149,3 @@ public:
     // falta extraer la linea completa ., hecho en read ansii
 
 };
-
-  
-
-
-
