@@ -24,4 +24,3 @@ public:
 	virtual int getSize() = 0;
 	virtual void print() = 0;
 };
-

@@ -131,9 +131,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Dictionary.h" />
+    <ClInclude Include="DLinkedList.h" />
+    <ClInclude Include="DNode.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="objPalabra.h" />
     <ClInclude Include="readANSI.h" />
+    <ClInclude Include="SNode.h" />
+    <ClInclude Include="SplayDictionary.h" />
+    <ClInclude Include="SplayTree.h" />
+    <ClInclude Include="TrieNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
