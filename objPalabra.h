@@ -52,7 +52,7 @@ public:
         cout << "Lista de apariciones en líneas: ";
         for (int i = 0; i < CP.getSize(); ++i) {
             CP.goToPos(i);
-            cout << CP.getElement() << "vacio ";
+            cout << CP.getElement() << " ";
         }
         cout << endl;
     }

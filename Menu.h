@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include "Admin.h"
-
 using namespace std;
 
 class Menu {

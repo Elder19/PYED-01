@@ -1,7 +1,9 @@
 
+#define NOMINMAX
 #include <iostream>
-#include "Menu.h"
+#include "Windows.h"
 
+#include "Menu.h"
 
 
 
@@ -17,11 +19,15 @@ using namespace std;
 */
 
 int main() {
+    // Configuración regional
     setlocale(LC_ALL, "spanish");
+    SetConsoleCP(1252);
+    SetConsoleOutputCP(1252);
+
 
     Menu menu;
     int opcionMenu = 0;
-
+    menu.admin.abc();
     while (opcionMenu != 6) {
         opcionMenu = menu.menuPrincipal();
 
@@ -45,7 +51,7 @@ int main() {
             break;
 
         case 5:
-            menu.admin.lectorText();
+            menu.admin.selectorPalabras();
            
             break;
 
