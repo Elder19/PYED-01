@@ -27,7 +27,7 @@ int main() {
 
     Menu menu;
     int opcionMenu = 0;
-    menu.admin.abc();
+   //menu.admin.abc();
     while (opcionMenu != 6) {
         opcionMenu = menu.menuPrincipal();
 

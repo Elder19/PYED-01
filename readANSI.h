@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream> 
-#include <fstream> 
+#include <fstream>
+//INCLUIR CLASE
 
 using namespace std;
 
@@ -8,7 +9,9 @@ class readANSI {
 
 
 public:
+ 
     string leerArchivo(string ruta, bool charge) {
+        //nombrECLASE NOMBREPUNTERO;
         ifstream archivo(ruta);
 
         string contenido; //  para almacenar el contenido del archivo
@@ -20,8 +23,9 @@ public:
             
             while (getline(archivo, linea)) {
                 contenido += linea + "\n"; // Concatena la línea y un salto de línea
-                //if (charge)
-                    //cargar aqui el codigo de brasly
+                if (charge){}
+                  
+                   
             }
             archivo.close(); // Cierra el archivo después de la lectura
             return contenido;
