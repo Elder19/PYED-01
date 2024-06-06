@@ -1,16 +1,19 @@
 #pragma once
 #include "SplayDictionary.h"
+#include "DLinkedList.h"
 
 class TrieNode {
 public:
 	bool isFinal;
 	int prefixCount;
 	Dictionary<char, TrieNode*>* children;
+	DLinkedList<int>* line;
 
 	TrieNode() {
 		isFinal = false;
 		prefixCount = 0;
 		children = new SplayDictionary<char, TrieNode*>();
+		line = new DLinkedList<int>();
 	}
 	~TrieNode() {
 		delete children;
@@ -29,5 +32,13 @@ public:
 	}
 	List<char>* getChildren() {
 		return children->getKeys();
+	}
+
+	void insertLine(int l) {
+		line->append(l);
+	}
+
+	int getLine(int l) {
+		line->getElement();
 	}
 };

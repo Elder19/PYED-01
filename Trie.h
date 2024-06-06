@@ -55,7 +55,7 @@ public:
 		clear();
 		delete root;
 	}
-	void insert(string word) {
+	void insert(string word, int line) {
 		if (containsWord(word))
 			throw runtime_error("Duplicated word.");
 		TrieNode* current = root;
@@ -63,6 +63,7 @@ public:
 			current->prefixCount++;
 			if (!current->containsChild(word[i]))
 				current->addChild(word[i]);
+			current->insertLine(line);
 			current = current->getChild(word[i]);
 		}
 		current->prefixCount++;
