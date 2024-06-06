@@ -1,4 +1,5 @@
 #pragma once
+
 #include "SplayDictionary.h"
 #include "DLinkedList.h"
 
@@ -38,7 +39,23 @@ public:
 		line->append(l);
 	}
 
-	int getLine(int l) {
+	int getLine() {
 		line->getElement();
+	}
+
+	bool getIsFinal() {
+		return isFinal;
+	}
+
+	void setIsFinal(bool isfinal) {
+		isFinal = isfinal;
+	}
+
+	int getPrefixCount() {
+		return prefixCount;
+	}
+
+	void setPrefixCount(int prefixcount) {
+		prefixCount = prefixcount;
 	}
 };
