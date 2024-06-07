@@ -4,7 +4,9 @@
 #include <iostream>
 #include <stdexcept>
 #include "TrieNode.h"
+#include "MaxHeap.h"
 #include "DLinkedList.h"
+#include "BSTree.h"
 
 using std::string;
 using std::cout;
@@ -159,7 +161,7 @@ public:
 		return lista;
 	}
 
-	DLinkedList<KVPair<int, string>>* palabrasMasUtilizadas(int N, BSTree<string>* bst) {
+	DLinkedList<KVPair<int, string>>* topNWords(int n, BSTree<string>* bst) {
 		MinHeap<KVPair<int, string>> heap(getSize());
 		List<string>* words = getMatches("");
 
@@ -168,7 +170,7 @@ public:
 			string word = words->getElement();
 			if (!bst->contains(word)) {
 				TrieNode* node = findNode(word);
-				int contador = node->getApariciones();
+				int contador = node->getCountLines();
 				KVPair<int, string> pares(contador, word);
 				heap.insert(pares);
 			}
@@ -176,12 +178,47 @@ public:
 		}
 
 		DLinkedList<KVPair<int, string>>* topWords = new DLinkedList<KVPair<int, string>>();
-		for (int i = 0; i < N && !heap.isEmpty(); i++) {
+		for (int i = 0; i < n && !heap.isEmpty(); i++) {
 			topWords->append(heap.removeFirst());
 		}
 
 		delete words;
 		return topWords;
+	}
+
+	DLinkedList<KVPair<int, string>>* getPrefixWords(string prefix) {
+		string word;
+		int apariciones;
+		List<string>* words = getMatches(prefix);
+		DLinkedList<KVPair<int, string>>* prefixWords = new DLinkedList<KVPair<int, string>>();
+		words->goToStart();
+
+		while (!words->atEnd()) {
+			word = words->getElement();
+			TrieNode* node = findNode(word);
+			apariciones = node->getCountLines();
+			KVPair<int, string> par(apariciones, word);
+			prefixWords->append(par);
+			words->next();
+		}
+		delete words;
+		return prefixWords;
+	}
+
+	DLinkedList<int>* buscarPalabra(string word) {
+		TrieNode* node = findNode(word);
+		DLinkedList<int>* appearancesWord = node->line;
+		DLinkedList<int>* appearances = new DLinkedList<int>();
+		appearancesWord->goToStart();
+
+		for (int i = 0; i < appearancesWord->getSize(); i++) {
+			int appearance = appearancesWord->getElement();
+			if (!appearances->contains(appearance)) {
+				appearances->append(appearance);
+			}
+			appearancesWord->next();
+		}
+		return appearances;
 	}
 
 };

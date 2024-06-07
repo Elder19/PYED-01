@@ -52,4 +52,3 @@ ostream& operator <<(ostream &os, const KVPair<K, V> &pair) {
 	os << "(" << pair.key << ", " << pair.value << ")";
 	return os;
 }
-

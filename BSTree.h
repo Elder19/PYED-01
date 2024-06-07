@@ -160,4 +160,3 @@ public:
 		delete elements;
 	}
 };
-
