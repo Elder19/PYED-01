@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 
 #include "SplayDictionary.h"
 #include "DLinkedList.h"
@@ -18,6 +18,7 @@ public:
 	}
 	~TrieNode() {
 		delete children;
+		delete line;
 	}
 	bool containsChild(char c) {
 		return children->contains(c);
@@ -39,8 +40,8 @@ public:
 		line->append(l);
 	}
 
-	int getLine() {
-		line->getElement();
+	int getCountLines() {
+		return line->getSize();
 	}
 
 	bool getIsFinal() {
