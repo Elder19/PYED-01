@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 #include "PriorityQueue.h"
-#include "MinHeap.h"
+#include "MaxHeap.h"
 #include "KVPair.h"
 
 using std::runtime_error;

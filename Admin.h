@@ -8,7 +8,7 @@
 #include "objPalabra.h"
 #include "ArrayListt.h"
 #include "BSTDictionary.h"
-#include "MinHeap.h"
+#include "MaxHeap.h"
 #include "HeapPriorityQueue.h"
 using namespace std;
 
@@ -183,8 +183,3 @@ public:
     // falta extraer la linea completa ., hecho en read ansii
 
 };
-
-  
-
-
-

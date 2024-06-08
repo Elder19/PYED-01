@@ -18,8 +18,6 @@ public:
 	virtual void setValue(K key, V value) = 0;
 	virtual bool contains(K key) = 0;
 	virtual List<K>* getKeys() = 0;
-	virtual bool containsKey(const K& key) = 0;
-
 	virtual List<V>* getValues() = 0;
 	virtual int getSize() = 0;
 	virtual void print() = 0;
