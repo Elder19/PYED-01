@@ -140,7 +140,6 @@
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MaxHeap.h" />
     <ClInclude Include="objPalabra.h" />
-    <ClInclude Include="readANSI.h" />
     <ClInclude Include="SNode.h" />
     <ClInclude Include="SplayDictionary.h" />
     <ClInclude Include="SplayTree.h" />

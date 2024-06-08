@@ -15,6 +15,7 @@
 #include "HeapPriorityQueue.h"
 #include "Trie.h"
 #include "BSTree.h"
+
 using namespace std;
 
 /*
@@ -27,14 +28,20 @@ class Admin {
 private:
     // Constructor privado para evitar la creaci�n de instancias fuera de la clase
     Admin() {}
-    BSTree<string>* bst; // Lista de apariciones en líneas
-    ArrayListt<char>* ignoreL  ;  //abecedario
-    HeapPriorityQueue<string>* queue;// lista de prioridad
+    BSTree<string>* bst = new BSTree<string>(); // Lista de apariciones en líneas
+    BSTree<char>* ignoreL = new BSTree<char>();  //abecedario
     DLinkedList<string>* Lineas = new DLinkedList<string>();
+
     // Evitar que se copie la instancia
     Admin(const Admin&) = delete;
     Admin& operator=(const Admin&) = delete;
     Trie trie;
+
+    ~Admin() {
+        delete bst;
+        delete ignoreL;
+        delete Lineas;
+    }
     
   
 public:
@@ -83,7 +90,6 @@ public:
         std::cout << "Ruta: " << ruta << "\n";
 
         if (archivo.is_open()) {
-            cout << ("entre");
             while (std::getline(archivo, linea)) {
                 contenido += linea + "\n"; // Concatena la línea y un salto de línea
                 if (charge) {
@@ -136,16 +142,15 @@ public:
             if (fin < finPalabra) {
                 string palabra = contenidoArchivo.substr(fin, finPalabra - fin);
                 std::transform(palabra.begin(), palabra.end(), palabra.begin(), ::tolower);
-
                 trie.insert(palabra, lineNumber);
-                trie.insert(palabra, lineNumber);
-                trie.print();
                 line.clear();
-                cout << "Palabra: " << palabra << ", Línea: " << lineNumber << std::endl;
+                //cout << "Palabra: " << palabra << ", Línea: " << lineNumber << std::endl;
                 fin = finPalabra;
             }
         }
+        trie.print();
     }
+
     /**
     * @brief Lee caracteres individuales de un archivo especificado y los almacena en la lista de caracteres a ignorar.
     *for (char c = 'a'; c <= 'z'; ++c) {
@@ -161,64 +166,56 @@ public:
     */
     void abc() {
         string contenidoArchivo = leerArchivo("abecedario.txt", false);
-        cout << contenidoArchivo;
         for (char c : contenidoArchivo) {
             if (c != ' ' && c != '\n') {
-                cout << c;
-                ignoreL->append(c);
+                ignoreL->insert(c);
             }
         }
-        
     }
+
     /**
     * @brief Lee palabras de un archivo y las almacena en la lista de palabras a ignorar.
     *
     * Solicita al usuario una ruta de archivo, lo lee y almacena las palabras en la lista de palabras a ignorar.
     */
     void palabrasAIgnorar() {
-       
-        string ruta;
-        cin.ignore();
-        cout << "ingrese una direccion de archivo: ";
-        getline(cin, ruta);
-        string contenidoArchivo = leerArchivo(ruta, false);
+        std::string ruta;
+        std::cin.ignore();
+        std::cout << "Ingrese una dirección de archivo: ";
+        std::getline(std::cin, ruta);
+        std::string contenidoArchivo = leerArchivo(ruta, true);
 
         size_t inicio = 0;
-        size_t fin = inicio;
-        int lineNumber = 1;
-        // Avanzar hasta el primer carácter que no sea espacio o nueva línea
-        while (inicio < contenidoArchivo.length()) {
-            size_t fin = inicio;
-            cout << contenidoArchivo[fin];
+        size_t fin = 0;
+        size_t longitud = contenidoArchivo.length();
+
+        while (inicio < longitud) {
             // Avanzar hasta el primer carácter que no sea espacio o nueva línea
-            while (fin < contenidoArchivo.length() && (contenidoArchivo[fin] == ' ' || contenidoArchivo[fin] == '\n')) {
-                if (contenidoArchivo[fin] == '\n') {
-                    lineNumber++;
-
-                }
-
-
-                fin++;
+            while (inicio < longitud && (contenidoArchivo[inicio] == ' ' || contenidoArchivo[inicio] == '\n')) {
+                inicio++;
             }
 
             // Encontrar el final de la palabra
-            inicio = fin;
-            while (fin < contenidoArchivo.length() && ignoreL->contains(contenidoArchivo[fin]) && contenidoArchivo[fin] != '\n') {
-
+            fin = inicio;
+            while (fin < longitud && contenidoArchivo[fin] != ' ' && contenidoArchivo[fin] != '\n') {
                 fin++;
             }
 
+            // Extraer y procesar la palabra si es válida
             if (inicio < fin) {
-                string palabra = contenidoArchivo.substr(inicio, fin - inicio);
-                bst->insert(palabra);
+                std::string palabra = contenidoArchivo.substr(inicio, fin - inicio);
+                if (!palabra.empty() && bst) {
+                    bst->insert(palabra);
+                }
             }
 
-            cout << "Se ingreso con exito el archivo de texto con palabras a ingresar";
-
+            // Continuar desde el final de la palabra
+            inicio = fin;
         }
+        bst->print();
     }
     // falta cargar el heap 
     // falta leer archivos misma carpeta
     // falta extraer la linea completa ., hecho en read ansii
-
+    // C:\Users\User\Downloads\Proyecto_1_Indización_de_texto_con_Tries\Proyecto 1 Indización de texto con Tries\ignorar.txt
 };

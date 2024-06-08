@@ -28,7 +28,7 @@ int main() {
     Menu menu;
     int opcionMenu = 0;
     menu.admin.abc();
-    while (opcionMenu != 6) {
+    while (opcionMenu != 7) {
         opcionMenu = menu.menuPrincipal();
 
         switch (opcionMenu) {

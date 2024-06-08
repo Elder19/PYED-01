@@ -23,9 +23,6 @@
     <ClInclude Include="Admin.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="readANSI.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="objPalabra.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

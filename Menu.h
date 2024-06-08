@@ -22,7 +22,7 @@ public:
         cout << "Ingrese su opción: ";
         cin >> opcion;
 
-        while (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6) {
+        while (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6 && opcion != 7) {
             cout << "Error: Selección Inválida. Escoja una de las opciones del Menú: ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
