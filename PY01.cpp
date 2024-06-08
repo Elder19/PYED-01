@@ -27,7 +27,7 @@ int main() {
 
     Menu menu;
     int opcionMenu = 0;
-   //menu.admin.abc();
+    menu.admin.abc();
     while (opcionMenu != 6) {
         opcionMenu = menu.menuPrincipal();
 
@@ -46,7 +46,7 @@ int main() {
             break;
 
         case 4:
-         //   menu.administracion();
+            menu.PalabrasMasUtilizadas();
             cout << "\n" << endl;
             break;
 
@@ -54,8 +54,11 @@ int main() {
             menu.admin.selectorPalabras();
            
             break;
-
         case 6:
+            menu.admin.palabrasAIgnorar();
+            break;
+
+        case 7:
             break;
 
         default:

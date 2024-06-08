@@ -17,7 +17,8 @@ public:
         cout << "(3) Buscar por cantidad de letras" << endl;
         cout << "(4) Palabras mas utilizadas" << endl;
         cout << "(5) Cargar otro archivo" << endl;
-        cout << "(6) Salir del programa" << endl;
+        cout << "(6) ingresar archivo de palabras a ignorar"<<endl;
+        cout << "(7) Salir del programa" << endl;
         cout << "Ingrese su opción: ";
         cin >> opcion;
 
@@ -52,7 +53,7 @@ public:
 
             switch (opcionWT) {
             case 1:
-                // admin.VerTop();
+                admin.verTop();
                 break;
             case 2:
                 return;
