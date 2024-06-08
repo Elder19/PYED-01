@@ -93,7 +93,7 @@ public:
             while (std::getline(archivo, linea)) {
                 contenido += linea + "\n"; // Concatena la línea y un salto de línea
                 if (charge) {
-                    Lineas->append(linea + "\n");
+                    Lineas->insert(linea + "\n");
                 }
             }
             archivo.close(); // Cierra el archivo después de la lectura
@@ -117,7 +117,7 @@ public:
         cout << "ingrese una direccion de archivo: ";
         getline(cin, ruta);
         string contenidoArchivo = leerArchivo(ruta, true);
-        int lineNumber = 1;
+        int lineNumber = 0;
         size_t inicio = 0;
         string line;
 
@@ -148,22 +148,8 @@ public:
                 fin = finPalabra;
             }
         }
-        trie.print();
     }
 
-    /**
-    * @brief Lee caracteres individuales de un archivo especificado y los almacena en la lista de caracteres a ignorar.
-    *for (char c = 'a'; c <= 'z'; ++c) {
-            ignoreL->insert(c);
-            ignoreL->insert(toupper(c)); // Insertar también la versión mayúscula
-        }
-        ignoreL->insert('ñ');
-        ignoreL->insert('Ñ'); // Insertar también la versión mayúscula de 'ñ'
-        ignoreL->insert('ü');
-        ignoreL->insert('Ü'); // Insertar también la versión mayúscula de 'ü'
-        return true;
-    * Solicita al usuario una ruta de archivo y lo lee, almacenando cada carácter en la lista de caracteres a ignorar.
-    */
     void abc() {
         string contenidoArchivo = leerArchivo("abecedario.txt", false);
         for (char c : contenidoArchivo) {
@@ -212,10 +198,28 @@ public:
             // Continuar desde el final de la palabra
             inicio = fin;
         }
-        bst->print();
     }
-    // falta cargar el heap 
-    // falta leer archivos misma carpeta
-    // falta extraer la linea completa ., hecho en read ansii
-    // C:\Users\User\Downloads\Proyecto_1_Indización_de_texto_con_Tries\Proyecto 1 Indización de texto con Tries\ignorar.txt
+
+    void lookWordPrefix() {
+        string prefix;
+        cin.ignore();
+        cout << "ingrese un prefijo a buscar: ";
+        getline(cin, prefix);
+
+        List<string>* matches = trie.getMatches(prefix);
+        
+        for (matches->goToStart(); !matches->atEnd(); matches->next()) {
+            DLinkedList<int>* lines = trie.getLine(matches->getElement());
+            lines->print();
+            lines->getSize();
+            
+            for (lines->goToStart(); !lines->atEnd(); lines->next()) {
+                cout << matches->getElement() << ": ";
+                Lineas->printElement(lines->getElement());
+            }
+        }
+    }
 };
+
+// C:\Users\User\Downloads\Proyecto_1_Indización_de_texto_con_Tries\Proyecto 1 Indización de texto con Tries\ignorar.txt
+// C:\Users\User\Downloads\Proyecto_1_Indización_de_texto_con_Tries\Proyecto 1 Indización de texto con Tries\Tormento.txt

@@ -96,7 +96,8 @@ public:
 
 	bool containsWord(string word) {
 		TrieNode* current = findNode(word);
-		if (current == nullptr) return false;
+		if (current == nullptr) 
+			return false;
 		return current->isFinal;
 	}
 
@@ -221,4 +222,8 @@ public:
 		return appearances;
 	}
 
+	DLinkedList<int>* getLine(string word) {
+		TrieNode* current = findNode(word);
+		return current->getLinesList();
+	}
 };

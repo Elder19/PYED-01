@@ -33,7 +33,7 @@ int main() {
 
         switch (opcionMenu) {
         case 1:
-           //menu.admin.lectorText()
+            menu.admin.lookWordPrefix();
             break;
 
         case 2:

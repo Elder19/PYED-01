@@ -20,9 +20,6 @@ private:
 	BSTNode<E>* insertAux(BSTNode<E>* current, E element) {
 		if (current == nullptr)
 			return new BSTNode<E>(element);
-		// se puede quitar el siguiente if si se aceptan repetidos
-		if (element == current->element)
-			throw runtime_error("Duplicated element.");
 		if (element < current->element) {
 			current->left = insertAux(current->left, element);
 			return current;

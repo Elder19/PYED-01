@@ -40,6 +40,10 @@ public:
 		line->append(l);
 	}
 
+	DLinkedList<int>* getLinesList() {
+		return line;
+	}
+
 	int getCountLines() {
 		return line->getSize();
 	}

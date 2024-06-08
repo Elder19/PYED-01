@@ -131,6 +131,7 @@ public:
 		return false;
 	}
 	void printElement(int n ) {
+		goToStart();
 		int contador = 1;
 		DNode<E>* temp = head->next;
 		while (temp != tail) {
