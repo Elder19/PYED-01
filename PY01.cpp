@@ -15,6 +15,7 @@ using namespace std;
 
     Elder León
     Brazly Morales
+    Raúl Alfaro Rodríguez
 
 */
 
@@ -34,15 +35,17 @@ int main() {
         switch (opcionMenu) {
         case 1:
             menu.admin.lookWordPrefix();
+            cout << "\n" << endl;
             break;
 
         case 2:
-           // menu.ticket();
+            menu.admin.lookWord();
             cout << "\n" << endl;
             break;
 
         case 3:
-          //  menu.admin.menuAtenderArea();
+            menu.admin.getLenghtWords();
+            cout << "\n" << endl;
             break;
 
         case 4:
@@ -52,10 +55,11 @@ int main() {
 
         case 5:
             menu.admin.selectorPalabras();
-           
+            cout << "\n" << endl;
             break;
         case 6:
             menu.admin.palabrasAIgnorar();
+            cout << "\n" << endl;
             break;
 
         case 7:

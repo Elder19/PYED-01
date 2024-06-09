@@ -130,13 +130,12 @@ public:
 		}
 		return false;
 	}
-	void printElement(int n ) {
-		goToStart();
-		int contador = 1;
+	void printElement(int n) {
+		int contador = 0;
 		DNode<E>* temp = head->next;
 		while (temp != tail) {
 			if (contador == size - n) {
-				cout << temp->element << " ";
+				cout << temp->element;
 				break;
 			}
 			contador++;

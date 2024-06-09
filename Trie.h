@@ -140,8 +140,15 @@ public:
 	List<string>* getMatches(string prefix) {
 		List<string>* words = new DLinkedList<string>();
 		TrieNode* current = findNode(prefix);
-		if (current != nullptr)
+
+		if (current != nullptr) {
 			getMatchesAux(current, prefix, words);
+
+		} else {
+			cout << "Error: No se encontraron coincidencias con el prefijo ingresado." << endl;
+			return nullptr;
+		}
+
 		return words;
 	}
 
@@ -208,18 +215,13 @@ public:
 
 	DLinkedList<int>* buscarPalabra(string word) {
 		TrieNode* node = findNode(word);
-		DLinkedList<int>* appearancesWord = node->line;
-		DLinkedList<int>* appearances = new DLinkedList<int>();
-		appearancesWord->goToStart();
 
-		for (int i = 0; i < appearancesWord->getSize(); i++) {
-			int appearance = appearancesWord->getElement();
-			if (!appearances->contains(appearance)) {
-				appearances->append(appearance);
-			}
-			appearancesWord->next();
+		if (node == nullptr) {
+			cout << "Error: Palabra no encontrada." << endl;
+			return nullptr;
 		}
-		return appearances;
+
+		return node->getLinesList();
 	}
 
 	DLinkedList<int>* getLine(string word) {

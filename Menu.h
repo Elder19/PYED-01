@@ -37,7 +37,7 @@ public:
 
         while (opcionWT != 2) {
             cout << "\n" << endl;
-            cout << "	palabras mas uttilizadas" << endl;
+            cout << "	Palabras mas Utilizadas" << endl;
             cout << "==========================================" << endl;
             cout << "(1) Ver top" << endl;
             cout << "(2) Regresar" << endl;
@@ -53,7 +53,7 @@ public:
 
             switch (opcionWT) {
             case 1:
-                admin.verTop();
+                admin.topNWords();
                 break;
             case 2:
                 return;
