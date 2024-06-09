@@ -52,6 +52,11 @@ public:
         return instance;
 
     }
+    /**
+    * @brief Muestra el top N de palabras más frecuentes.
+    *
+    * Solicita al usuario el número de palabras a mostrar y luego las imprime.
+    */
     void verTop() {
         string input;
         int number;
@@ -110,15 +115,10 @@ public:
     }
 
     /**
-    * @brief Selecciona y muestra palabras del archivo especificado.
-    *
-    * Solicita al usuario una ruta de archivo, lo lee y muestra cada palabra junto con su número de línea.
-    */
-    /**
- * @brief Selecciona y muestra palabras del archivo especificado.
- *
- * Solicita al usuario una ruta de archivo, lo lee y muestra cada palabra junto con su número de línea.
- */
+   * @brief Selecciona y muestra palabras del archivo especificado.
+   *
+   * Solicita al usuario una ruta de archivo, lo lee y muestra cada palabra junto con su número de línea.
+   */
     void selectorPalabras() {
 
         string ruta;
@@ -127,7 +127,12 @@ public:
         getline(cin, ruta);
         leerArchivo(ruta, true);
     }
-
+    /**
+   * @brief Procesa el contenido del archivo y extrae palabras, insertándolas en el trie.
+   *
+   * @param contenidoArchivo El contenido del archivo a procesar.
+   * @param lineNumber El número de línea actual.
+   */
     void selectorPalabras2(string contenidoArchivo, int lineNumber) {
         size_t inicio = 0;
         string line;
@@ -159,7 +164,9 @@ public:
             }
         }
     }
-
+    /**
+    * @brief Carga el abecedario desde un archivo y lo inserta en el árbol de caracteres a ignorar.
+    */
     void abc() {
         string contenidoArchivo = leerArchivo("abecedario.txt", false);
         for (char c : contenidoArchivo) {
@@ -170,10 +177,10 @@ public:
     }
 
     /**
-    * @brief Lee palabras de un archivo y las almacena en la lista de palabras a ignorar.
-    *
-    * Solicita al usuario una ruta de archivo, lo lee y almacena las palabras en la lista de palabras a ignorar.
-    */
+     * @brief Lee palabras de un archivo y las almacena en la lista de palabras a ignorar.
+     *
+     * Solicita al usuario una ruta de archivo, lo lee y almacena las palabras en la lista de palabras a ignorar.
+     */
     void palabrasAIgnorar() {
         ignoreL->clear();
         std::string ruta;
@@ -214,6 +221,9 @@ public:
         bst->print();
     }
 
+    /**
+     * @brief Busca palabras con un prefijo dado en el trie y muestra sus apariciones.
+     */
     void lookWordPrefix() {
         string prefix;
         cout << "ingrese un prefijo a buscar: ";
@@ -249,7 +259,9 @@ public:
             }
         }
     }
-
+    /**
+  * @brief Busca una palabra específica en el trie y muestra sus apariciones.
+  */
     void lookWord() {
         string word;
         cout << "ingrese una palabra a buscar: ";
@@ -281,7 +293,11 @@ public:
             Lineas->printElement(lines->getElement());
         }
     }
-
+     /**
+     * @brief busca y retorna la palabras con n cantidad de letras
+     *
+     
+     */
     void getLenghtWords() {
         string lenght;
         cout << "ingrese un valor numérico: ";
@@ -312,7 +328,11 @@ public:
             }
         }
     }
+    /**
+     * @brief pide al usuario la cantidad de palabras mas utilizadas que deseen usar .
+     *
 
+     */
     void topNWords() {
         string lenght;
         cout << "ingrese un valor numérico: ";
@@ -330,7 +350,11 @@ public:
         DLinkedList<KVPair<int, string>>* topWords = trie.topNWords(numero, bst);
         topWords->print();
     }
+    /**
+ * @brief Limpia toda la memoria para poder cargar otros archivos
+ *
 
+ */
     void clear() {
         bst->clear();
         ignoreL->clear();
