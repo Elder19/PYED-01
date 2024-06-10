@@ -5,8 +5,6 @@
 
 #include "Menu.h"
 
-
-
 using namespace std;
 
 /*
@@ -25,6 +23,18 @@ int main() {
     setlocale(LC_ALL, "spanish");
     SetConsoleCP(1252);
     SetConsoleOutputCP(1252);
+
+    cout << "===============================" << endl;
+    cout << "      BIENVENIDO USUARIO" << endl;
+    cout << "===============================" << endl;
+    cout << "Sistema de Indización de Textos" << endl;
+    cout << "\n" << endl;
+
+    cout << "Este programa tiene por funcionalidad indizar cualquier contenido de archivo de texto." << endl;
+    cout << "De modo en que cuando se procesa el texto el sistema es capaz de realizar operaciones sobre su contenido." << endl;
+    cout << "Puede realizar busquedas de palabras, prefijos y por cantidad de letras y mostrará todas la coincidencias encontradas." << endl;
+    cout << "E incluso se puede realizar una estadística de las palabras más utilizadas en el archivo de texto" << endl;
+    cout << "\n" << endl;
 
     Menu menu;
     int opcionMenu = 0;
