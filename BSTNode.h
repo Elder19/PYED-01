@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Nodo de un Árbol Binario de Búsqueda (BST).
+ *
+ * @tparam E Tipo de dato almacenado en el nodo.
+ */
+
 template <typename E>
 class BSTNode {
 public:

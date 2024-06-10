@@ -52,35 +52,7 @@ public:
         return instance;
 
     }
-    /**
-    * @brief Muestra el top N de palabras más frecuentes.
-    *
-    * Solicita al usuario el número de palabras a mostrar y luego las imprime.
-    */
-    void verTop() {
-        string input;
-        int number;
-
-        // Ignorar cualquier entrada previa
-        cin.ignore();
-
-        // Pedir al usuario que ingrese la cantidad de palabras
-        cout << "Ingrese la cantidad de palabras que desea ver: ";
-        getline(cin, input);
-
-     
-        // Intentar convertir la cadena a un entero
-        number = stoi(input);
-
-            // Verificar que el número sea positivo
-        if (number <= 0) {
-            cout << ("El numero no es un entero positivo.\n");
-        
-        trie.topNWords(number, bst);
-        }
-    
-    }
-
+   
      /**
    * @brief Lee el contenido de un archivo.
    *
@@ -120,7 +92,8 @@ public:
    * Solicita al usuario una ruta de archivo, lo lee y muestra cada palabra junto con su número de línea.
    */
     void selectorPalabras() {
-
+        Lineas->clear();
+        trie.clear();
         string ruta;
         cin.ignore();
         cout << "ingrese una direccion de archivo: ";
@@ -182,7 +155,7 @@ public:
      * Solicita al usuario una ruta de archivo, lo lee y almacena las palabras en la lista de palabras a ignorar.
      */
     void palabrasAIgnorar() {
-        ignoreL->clear();
+        bst->clear();
         std::string ruta;
         std::cin.ignore();
         std::cout << "Ingrese una dirección de archivo: ";
@@ -217,7 +190,8 @@ public:
             inicio = fin;
         }
         cout << "\n" << endl;
-        cout << "Lista de Palabras a Ignorasr" << endl;
+        cout << "Lista de Palabras a Ignorar" << endl;
+        cout << "\n" << endl;
         bst->print();
     }
 
@@ -350,14 +324,16 @@ public:
         DLinkedList<KVPair<int, string>>* topWords = trie.topNWords(numero, bst);
         topWords->print();
     }
+
     /**
  * @brief Limpia toda la memoria para poder cargar otros archivos
  *
 
  */
     void clear() {
-        bst->clear();
-        ignoreL->clear();
         Lineas->clear();
+        ignoreL->clear();
+        bst->clear();
+        trie.clear();
     }
 };

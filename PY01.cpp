@@ -16,6 +16,7 @@ using namespace std;
     Elder León
     Brazly Morales
     Raúl Alfaro Rodríguez
+    Diego Araya Ureña
 
 */
 
@@ -24,7 +25,6 @@ int main() {
     setlocale(LC_ALL, "spanish");
     SetConsoleCP(1252);
     SetConsoleOutputCP(1252);
-
 
     Menu menu;
     int opcionMenu = 0;

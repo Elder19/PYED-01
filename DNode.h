@@ -1,5 +1,11 @@
 #pragma once
 
+/**
+ * @brief Clase para representar un nodo en una lista doblemente enlazada.
+ *
+ * @tparam E Tipo de dato almacenado en el nodo.
+ */
+
 template <typename E>
 class DNode
 {

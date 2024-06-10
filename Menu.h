@@ -4,6 +4,7 @@
 using namespace std;
 
 // Clase Menu que gestiona las opciones del menú principal y las acciones asociadas
+
 class Menu {
 public:
     Admin& admin = Admin::getInstance();   // Instancia única de admin

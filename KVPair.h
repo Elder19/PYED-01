@@ -4,6 +4,13 @@
 
 using std::ostream;
 
+/**
+ * @brief Clase para representar un par clave-valor.
+ *
+ * @tparam K Tipo de la clave.
+ * @tparam V Tipo del valor.
+ */
+
 template <typename K, typename V>
 class KVPair
 {

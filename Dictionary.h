@@ -2,6 +2,13 @@
 
 #include "List.h"
 
+/**
+ * @brief Interfaz para un Diccionario que asocia claves a valores.
+ *
+ * @tparam K Tipo de las claves.
+ * @tparam V Tipo de los valores.
+ */
+
 template <typename K, typename V>
 class Dictionary 
 {
