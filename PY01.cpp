@@ -13,8 +13,8 @@ using namespace std;
 
     Elder León
     Brazly Morales
-    Raúl Alfaro Rodríguez
-    Diego Araya Ureña
+    Raúl Alfaro
+    Diego Araya
 
 */
 

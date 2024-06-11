@@ -37,6 +37,7 @@ private:
     Admin& operator=(const Admin&) = delete;
     Trie trie;
 
+    // Destructor de la clase para devolver la memoria solicitada
     ~Admin() {
         clear();
         delete bst;
@@ -326,7 +327,7 @@ public:
     }
 
     /**
- * @brief Limpia toda la memoria para poder cargar otros archivos
+ * @brief Limpia toda la memoria de las estructuras
  *
 
  */

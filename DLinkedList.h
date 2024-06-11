@@ -237,9 +237,9 @@ public:
     }
 
     /**
-     * @brief Imprime el elemento en la n-ésima posición desde el final.
+     * @brief Imprime el elemento en la n-ésima posición desde el inicio.
      *
-     * @param n Posición desde el final.
+     * @param n Posición desde el inicio.
      */
     void printElement(int n) {
         int contador = 0;
